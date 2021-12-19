@@ -1,7 +1,99 @@
-.App {
-  text-align: left;
+.header {
+  background-color: #0fcaf0;
+  display: flex;
+  justify-content: space-between;
+  height: 6rem;
+  align-items: center;
+  padding: 0 2rem;
+  color: white;
 }
 
-.custom-icon:hover {
-  transform: scale(1.2);
+.item {
+  display: flex;
+}
+
+.items {
+  margin: 0 4rem;
+}
+
+.item-quantity {
+  display: flex;
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.quantity {
+  border: 3px solid lightgray;
+  padding: 10px;
+  margin: auto;
+  width: 3rem;
+}
+
+.quantity-text {
+  margin: auto;
+  margin-left: 1rem;
+}
+
+.item-title-img {
+  width: 12rem;
+  margin-left: 2rem;
+}
+
+.shopping-cart {
+  display: flex;
+  align-items: center;
+}
+
+.number-cart {
+  margin: auto;
+  margin-left: 0.7rem;
+}
+
+.increment-buttons {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.increment-buttons button {
+  height: 30px;
+  width: 45px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.cart-bold {
+  font-weight: bold;
+}
+
+.cart-title {
+  text-align: center;
+  width: 150px;
+  margin-top: 5px;
+}
+
+.checkout-btn {
+  margin-top: 1.5rem;
+}
+
+.cart-items-title {
+  margin: 2rem;
+}
+
+.cart-number-items {
+  margin: 0 6rem;
+}
+
+.cart-btn {
+  margin-top: 2rem;
+}
+
+.card-text form {
+  width: 250px;
 }

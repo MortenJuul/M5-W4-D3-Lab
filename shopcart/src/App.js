@@ -1,60 +1,43 @@
-import React, { Component } from 'react';
-import './App.css';
-import Header from './components/header';
-import CartItem from './components/cartitem';
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { products } from "./products";
+import { NavBar } from "./Navbar";
 
-class App extends Component {
-  state = {
-    products: [
-      {
-        id: 1,
-        image: './products/cologne.jpg',
-        desc: 'Unisex Cologne',
-        rating: 3.5,
-        value: 0
-      },
-      {
-        id: 2,
-        image: './products/iwatch.jpg',
-        desc: 'Apple iWatch',
-        rating: 1.2,
-        value: 0
-      },
-      {
-        id: 3,
-        image: './products/mug.jpg',
-        desc: 'Unique Mug',
-        rating: 5.0,
-        value: 0
-      },
-      {
-        id: 4,
-        image: './products/wallet.jpg',
-        desc: 'Mens Wallet',
-        rating: 4.7,
-        value: 0
-      },
-    ]
+class ShoppingApp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: products,
+    };
+  }
+
+  handleIncrease = (item) => {
+    const updateQuantity = item.quantity++;
+    this.setState({ updateQuantity });
   };
 
-  handleQuantityChange = (quantity, id, operator = 0) => {
-    
-    let products = this.state.products
-    products.filter(item => item.id === id)[0].value = parseInt(quantity) + parseInt(operator)
-    this.setState({ products })
-    console.log()
+  handleDecrease = (item) => {
+    if (item.quantity > 0) {
+      const updateQuantity = item.quantity--;
+      this.setState({ updateQuantity });
+    }
   };
 
-  render (){
+  render() {
     return (
-      <div className="App container">
-        <Header sum={this.state.products.map((product) => parseInt(product.value)).reduce((acc, value) => acc + value)} />
-        {this.state.products.map(prod =>
-          <CartItem key={prod.id} id={prod.id} image={prod.image} title={prod.desc} rating={prod.rating} value={prod.value} handleQuantityChange={this.handleQuantityChange}/>
-          )}
+      <div>
+        <NavBar
+          itemList={this.state.items}
+          handleIncrease={this.handleIncrease}
+          handleDecrease={this.handleDecrease}
+          totalQuantity={this.state.items
+            .map((item) => item.quantity)
+            .reduce((acc, curr) => acc + curr, 0)}
+        />
       </div>
     );
   }
 }
 
-export default App;
+export default ShoppingApp;
