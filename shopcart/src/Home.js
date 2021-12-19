@@ -10,6 +10,7 @@ export const Home = (props) => {
         itemList={props.itemList}
         handleIncrease={props.handleIncrease}
         handleDecrease={props.handleDecrease}
+        sortPrice={props.sortPrice}
       />
     </div>
   );
